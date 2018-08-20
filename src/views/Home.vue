@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+    <h1>{{ message2 }}</h1>
   </div>
 </template>
 
@@ -11,7 +12,8 @@
 export default {
   data: function() {
     return {
-      message: "Mike changed the message."
+      message: "Mike changed the message.",
+      message2: "Elizabeth added a message."
     };
   },
   created: function() {},
