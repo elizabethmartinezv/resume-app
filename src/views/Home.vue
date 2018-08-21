@@ -3,24 +3,10 @@
 
     <div class="container">
       <div class="card bg-light mb-3" style="max-width: 40rem;">
-        <div class="card-header">resume.name</div>
+        <div class="card-header">student.first_name student.last_name</div>
         <div class="card-body">
-          <h5 class="card-title">Education</h5>
-          <p class="card-text">education.start_date</p>
-          education.end_date
-          education.title
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="card bg-light mb-3" style="max-width: 40rem;">
-        <div class="card-header">resume.name</div>
-        <div class="card-body">
-          <h5 class="card-title">Education</h5>
-          <p class="card-text">education.start_date</p>
-          education.end_date
-          education.title
+          <h5 class="card-title">experience.job_title</h5>
+          <p class="card-text">student.short_bio</p>
         </div>
       </div>
     </div>
@@ -59,12 +45,15 @@
 export default {
   data: function() {
     return {
-      resumes: [],
-      message: "hello"
+      students: [],
+      educations: [],
+      experiences: [],
+      skills:[],
+      students: []
     };
   },
   // created: function() {
-  //   axios.get("localhost:3000/resumes").then{function(response) {
+  //   axios.get("localhost:3000/").then{function(response) {
   //     this.resumes = response.data
   //   }.bind(this)
   //   }
