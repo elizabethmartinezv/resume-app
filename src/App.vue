@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="#">Vue Tang Clan</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,10 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchFilter" list="titles">
+          <datalist id="titles">
+            <option v-for="student in students">{{ student.first_name }}</option>
+          </datalist>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
@@ -27,6 +30,27 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data: function() {
+    return {
+      searchFilter: "",
+      student: []
+    };
+  },
+  created: function() {
+    axios.get("http://vue-tang-resume-api.herokuapp.com/students").then(
+      function(response) {
+        console.log(response.data);
+        this.students = response.data;
+      }.bind(this)
+    );
+  }
+};
+  </script>
 
 <style>
 
